@@ -1,5 +1,6 @@
 package com.example.springauthdemo.model;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,6 +18,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.NaturalId;
+import org.springframework.security.core.GrantedAuthority;
 
 @Entity
 @Table(name = "users")
@@ -109,6 +111,14 @@ public class User extends DateAudit {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Set<Role> getRoles() {
+        return this.roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
 }

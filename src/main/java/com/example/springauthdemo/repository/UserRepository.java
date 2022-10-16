@@ -9,13 +9,14 @@ import org.springframework.stereotype.Repository;
 import com.example.springauthdemo.model.User;
 
 @Repository
+// the user repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByEmail(String email);
 
     Optional<User> findByUsername(String username);
 
-    List<User> findByUsernameOrEmail(String username, String email);
+    Optional<User> findByUsernameOrEmail(String username, String email);
 
     List<User> findByIdIn(List<Long> userIds);
 
